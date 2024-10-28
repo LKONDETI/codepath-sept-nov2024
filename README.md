@@ -17,6 +17,7 @@ Strings and Arrays
 Dictionaries
 Stacks, Queues, Two Pointer
 Time and Space Complexity
+Linked list
 
 # Additional Information:
 

@@ -245,35 +245,3 @@ performance_times2 = [155, 185, 150]
 print(sort_performers(performer_names1, performance_times1)) 
 print(sort_performers(performer_names2, performance_times2))
 
-
-
-
-
-
-
-
-
-def most_endangered(species_list):
-
-    endager_species = species_list[0] # Set the most endaged species to be the first element
-
-    for name in species_list:
-        if endager_species["population"] > species_list["population"]:
-            endager_species = endager_species["name"]
-
-    return endager_species
-species_list = [
-    {"name": "Amur Leopard",
-     "habitat": "Temperate forests",
-     "population": 84
-    },
-    {"name": "Javan Rhino",
-     "habitat": "Tropical forests",
-     "population": 72
-    },
-    {"name": "Vaquita",
-     "habitat": "Marine",
-     "population": 10
-    }
-]
-#print(most_endangered(species_list))
