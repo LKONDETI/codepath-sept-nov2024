@@ -51,5 +51,63 @@ observed_species2 = "ZZ"
 #print(count_endangered_species(endangered_species2, observed_species2))  
 
 #problem 3
+def navigate_research_station(station_layout, observations):
+    time = 0
+    station_indices = {}
+
+    for index in range(0,26):
+        station_indices[station_layout[index]] = index
+
+    current_index = 0
+
+    for obs in observations:
+        next_index = station_indices[obs]
+        time += abs(current_index - next_index)
+        current_index = next_index
+
+    return time
+
+station_layout1 = "pqrstuvwxyzabcdefghijklmno"
+observations1 = "wildlife"
+
+station_layout2 = "abcdefghijklmnopqrstuvwxyz"
+observations2 = "cba"
+
+#print(navigate_research_station(station_layout1, observations1))  
+#print(navigate_research_station(station_layout2, observations2))
+
+#problem 4
+
+def prioritize_observations(observed_species, priority_species):
+    
+    priority_count = {species: 0 for species in priority_species}
+    remaining_species = []
+    
+    for species in observed_species:
+        if species in priority_count:
+            priority_count[species] += 1
+        else:
+            remaining_species.append(species)
+    
+    
+    result = []
+    for species in priority_species:
+        result.extend([species] * priority_count[species])
+    
+    
+    result.extend(sorted(remaining_species))
+    
+    return result
+
+
+observed_species1 = ["🐯", "🦁", "🦌", "🦁", "🐯", "🐘", "🐍", "🦑", "🐻", "🐯", "🐼"]
+priority_species1 = ["🐯", "🦌", "🐘", "🦁"]  
+
+observed_species2 = ["bluejay", "sparrow", "cardinal", "robin", "crow"]
+priority_species2 = ["cardinal", "sparrow", "bluejay"]
+
+print(prioritize_observations(observed_species1, priority_species1))
+print(prioritize_observations(observed_species2, priority_species2)) 
+
 
     
