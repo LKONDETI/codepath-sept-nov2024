@@ -54,9 +54,57 @@ def reverse_comments_queue(comments):
 
 #print(reverse_comments_queue(["First!", "Interesting read.", "Well written."]))
 
-#problem 4
+#problem 6
+
+def edit_post(post):
+    words = post.split()
+   
+    reversed_words = [word[::-1] for word in words]
+ 
+    return ' '.join(reversed_words)
+
+#print(edit_post("Boost your engagement with these tips")) 
+#print(edit_post("Check out my latest vlog")) 
+
+#problem 7
+
+def post_compare(draft1, draft2):
+    def process_draft(draft):
+        result = []
+        for char in draft:
+            if char == "#":
+                if result:
+                    result.pop() 
+            else:
+                result.append(char)
+        return ''.join(result)
+
+    return process_draft(draft1) == process_draft(draft2)
+
+print(post_compare("ab#c", "ad#c"))
+print(post_compare("ab##", "c#d#")) 
+print(post_compare("a#c", "b")) 
+'''
+def post_compare(draft1, draft2):
+    draft1 = draft1.split()
+    draft2 = draft2.split()
+    count1 = 0
+    count2 = 0
+    for i in draft1:
+        if i == "#":
+            count1 += 1
+
+    for j in draft2:
+        if j == "#":
+            count2 += 1
+    if count1 == count2:
+        return True
+    else:
+        return False
+'''
 
 
-
+        
+    
 
     
