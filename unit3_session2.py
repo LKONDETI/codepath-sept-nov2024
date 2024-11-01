@@ -37,6 +37,33 @@ def collect_festival_points(points):
         total += points.pop()
     return total
 
-print(collect_festival_points([5, 8, 3, 10])) 
-print(collect_festival_points([2, 7, 4, 6])) 
-print(collect_festival_points([1, 5, 9, 2, 8])) 
+#print(collect_festival_points([5, 8, 3, 10])) 
+#print(collect_festival_points([2, 7, 4, 6])) 
+#print(collect_festival_points([1, 5, 9, 2, 8])) 
+
+#problem 1
+
+def manage_stage_changes(changes):
+    stack = []
+    canceled_performances = []
+
+    for change in changes:
+        if change.startswith("Schedule"):
+            performance_id = change.split()[1]
+            stack.append(performance_id)
+        elif change == "Cancel":
+            if stack:
+                canceled_performances.append(stack.pop())
+        elif change == "Reschedule":
+            if canceled_performances:
+                stack.append(canceled_performances.pop())
+
+    return stack
+print(manage_stage_changes(["Schedule A", "Schedule B", "Cancel", "Schedule C", "Reschedule", "Schedule D"]))  
+print(manage_stage_changes(["Schedule A", "Cancel", "Schedule B", "Cancel", "Reschedule", "Cancel"])) 
+print(manage_stage_changes(["Schedule X", "Schedule Y", "Cancel", "Cancel", "Schedule Z"])) 
+            
+
+
+
+
