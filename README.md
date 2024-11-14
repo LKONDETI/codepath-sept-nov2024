@@ -19,6 +19,7 @@ Stacks, Queues, Two Pointer
 Time and Space Complexity
 Linked list
 Recursion
+Binary search tree
 Leet code
 
 # Additional Information:
