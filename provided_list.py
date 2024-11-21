@@ -58,3 +58,13 @@ class Solution:
                 nums[write_index] = nums[read_index]
                 write_index += 1
         return write_index
+#first unique character
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        count = defaultdict(int)
+        for c in s:
+            count[c] += 1
+        for i, c in enumerate(s):
+            if count[c] == 1:
+                return i
+        return -1
